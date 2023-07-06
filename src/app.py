@@ -101,7 +101,8 @@ sw_counties = gpd.read_file(sw_counties_path).to_crs(epsg=4326)
 counties_list = sw_counties['NAME'].tolist()
 
 # Mapbox token
-token = open(".mapbox_token").read() # you will need your own token
+token = 'pk.eyJ1IjoicGNhcmJvbWVzdHJlIiwiYSI6ImNsamtvbDN6azBrOGMzaXE5enhiYjZyNGsifQ.e4hp_vz7s2MsOHqq6WZtqA'
+# token = open("src/.mapbox_token").read() # you will need your own token
 
 def get_dropdown_options():
     return [{'label': i, 'value': i} for i in counties_list]
