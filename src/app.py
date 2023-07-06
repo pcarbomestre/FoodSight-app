@@ -79,13 +79,13 @@ server = app.server
 # gdf_clim = gpd.read_file(gdf_clim_path)
 
 # Historic data
-df_hist_path = 'app/app_data/postgre/hist_data_grasscast.csv'
+df_hist_path = 'src/app_data/postgre/hist_data_grasscast.csv'
 df_hist = pd.read_csv(df_hist_path)
 # Forcast data
-df_forcast_path = 'app/app_data/postgre/forcast_data_grasscast.csv'
+df_forcast_path = 'src/app_data/postgre/forcast_data_grasscast.csv'
 df_forcast = pd.read_csv(df_forcast_path)
 # SW Grid
-sw_grid_path = 'app/app_data/postgre/southwest_grid/southwest_grid.shp'
+sw_grid_path = 'src/app_data/postgre/southwest_grid/southwest_grid.shp'
 sw_grid = gpd.read_file(sw_grid_path).to_crs(epsg=4326)
 
 # Merge for historical data map representation
@@ -95,13 +95,13 @@ gdf_forcast = sw_grid.merge(df_forcast, left_on='gridID', right_on='gridID')
 YEARS = gdf['year'].unique().tolist()
 
 ## Counties
-sw_counties_path = 'app/app_data/postgre/sw_counties/sw_counties.shp'
+sw_counties_path = 'src/app_data/postgre/sw_counties/sw_counties.shp'
 sw_counties = gpd.read_file(sw_counties_path).to_crs(epsg=4326)
 
 counties_list = sw_counties['NAME'].tolist()
 
 # Mapbox token
-token = open("app/.mapbox_token").read() # you will need your own token
+token = open("src/.mapbox_token").read() # you will need your own token
 
 def get_dropdown_options():
     return [{'label': i, 'value': i} for i in counties_list]
