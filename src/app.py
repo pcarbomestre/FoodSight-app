@@ -503,7 +503,6 @@ def update_graph(option_slctd, autocomplete, clickData):
         locations=dff.index,
         color=color,
         color_continuous_scale="YlGnBu",
-        mapbox_style="carto-positron",
         zoom=5, 
         center = {"lat": dff['geometry'].centroid.y.mean(),
                     "lon": dff['geometry'].centroid.x.mean()},
@@ -516,8 +515,9 @@ def update_graph(option_slctd, autocomplete, clickData):
     fig.update_traces(marker_line=dict(width=0))
 
     fig.update_layout(
-        mapbox_style="streets",
-        mapbox_accesstoken=token,
+        mapbox_style="carto-positron",
+        # mapbox_style="streets",
+        # mapbox_accesstoken=token,
         margin={"r": 0, "t": 0, "l": 0, "b": 0},
         mapbox_zoom=zoom,  # use the estimated zoom level
                     mapbox_center = {"lat": center_lat, 
