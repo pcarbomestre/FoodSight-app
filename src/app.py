@@ -30,6 +30,10 @@ from dash.dependencies import Input, Output, State
 
 app = dash.Dash(__name__, external_stylesheets=['https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'])
 
+# Declare server for Heroku deployment. Needed for Procfile.
+server = app.server
+
+
 # -- Import and clean data (importing csv into pandas)
 # df = pd.read_csv("intro_bees.csv")
 # df = pd.read_csv("https://raw.githubusercontent.com/Coding-with-Adam/Dash-by-Plotly/master/Other/Dash_Introduction/intro_bees.csv")
